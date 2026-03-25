@@ -143,3 +143,22 @@ button:hover {
   color: #ff0000;
 }
 
+.chart-section {
+  margin-top: 40px;
+}
+
+.chart-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chart-container {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 400px;
+}
+

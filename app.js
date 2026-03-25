@@ -1,6 +1,5 @@
-// Load transactions from localStorage on startup
-// If nothing saved yet, start with empty array
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+let spendingChart = null;
 
 function addTransaction() {
   const description = document.getElementById('description').value;
@@ -13,10 +12,9 @@ function addTransaction() {
     return;
   }
 
-  const transaction = { description, amount, type, date };
+  const category = document.getElementById('category').value;
+  const transaction = { description, amount, type, category, date };
   transactions.push(transaction);
-
-  // Save to localStorage every time we add a transaction
   saveTransactions();
   updateDashboard();
   clearForm();
@@ -36,11 +34,9 @@ function updateDashboard() {
   const income = transactions
     .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
-
   const expenses = transactions
     .filter(t => t.type === 'expense')
     .reduce((sum, t) => sum + t.amount, 0);
-
   const balance = income - expenses;
 
   document.querySelector('.income p').textContent = `$${income.toFixed(2)}`;
@@ -56,6 +52,8 @@ function updateDashboard() {
       <button class="delete-btn" onclick="deleteTransaction(${index})">✕</button>
     </li>
   `).join('');
+
+  updateChart(); // <-- right here, inside updateDashboard, at the bottom
 }
 
 function clearForm() {
@@ -63,6 +61,49 @@ function clearForm() {
   document.getElementById('amount').value = '';
 }
 
-// Load existing transactions when page opens
+function updateChart() {
+  const expenses = transactions.filter(t => t.type === 'expense');
+
+  const categoryTotals = {};
+  expenses.forEach(t => {
+    const cat = t.category || 'Other';
+    categoryTotals[cat] = (categoryTotals[cat] || 0) + t.amount;
+  });
+
+  const labels = Object.keys(categoryTotals);
+  const data = Object.values(categoryTotals);
+  const colors = [
+    '#4ade80', '#f87171', '#60a5fa', '#facc15',
+    '#c084fc', '#fb923c', '#34d399', '#f472b6'
+  ];
+
+  if (spendingChart) {
+    spendingChart.destroy();
+  }
+
+  if (labels.length === 0) return;
+
+  const ctx = document.getElementById('spendingChart').getContext('2d');
+  spendingChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: colors.slice(0, labels.length),
+        borderWidth: 0
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: { color: '#ffffff' }
+        }
+      }
+    }
+  });
+}
+
+// Load everything when page opens
 updateDashboard();
 
