@@ -1,29 +1,38 @@
-// This array stores all transactions in memory
-let transactions = [];
+// Load transactions from localStorage on startup
+// If nothing saved yet, start with empty array
+let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
 function addTransaction() {
-  // Grab the values from the form
   const description = document.getElementById('description').value;
   const amount = parseFloat(document.getElementById('amount').value);
   const type = document.getElementById('type').value;
+  const date = new Date().toLocaleDateString();
 
-  // Don't add if fields are empty
   if (!description || isNaN(amount)) {
     alert('Please fill in all fields!');
     return;
   }
 
-  // Create a transaction object and add it to our array
-  const transaction = { description, amount, type };
+  const transaction = { description, amount, type, date };
   transactions.push(transaction);
 
-  // Refresh the UI
+  // Save to localStorage every time we add a transaction
+  saveTransactions();
   updateDashboard();
   clearForm();
 }
 
+function saveTransactions() {
+  localStorage.setItem('transactions', JSON.stringify(transactions));
+}
+
+function deleteTransaction(index) {
+  transactions.splice(index, 1);
+  saveTransactions();
+  updateDashboard();
+}
+
 function updateDashboard() {
-  // Calculate totals
   const income = transactions
     .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -34,17 +43,17 @@ function updateDashboard() {
 
   const balance = income - expenses;
 
-  // Update the cards
   document.querySelector('.income p').textContent = `$${income.toFixed(2)}`;
   document.querySelector('.expenses p').textContent = `$${expenses.toFixed(2)}`;
   document.querySelector('.balance p').textContent = `$${balance.toFixed(2)}`;
 
-  // Update the transaction list
   const list = document.getElementById('transactions');
-  list.innerHTML = transactions.map(t => `
+  list.innerHTML = transactions.map((t, index) => `
     <li class="${t.type}">
       <span>${t.description}</span>
+      <span class="date">${t.date}</span>
       <span>${t.type === 'income' ? '+' : '-'}$${t.amount.toFixed(2)}</span>
+      <button class="delete-btn" onclick="deleteTransaction(${index})">✕</button>
     </li>
   `).join('');
 }
@@ -53,4 +62,7 @@ function clearForm() {
   document.getElementById('description').value = '';
   document.getElementById('amount').value = '';
 }
+
+// Load existing transactions when page opens
+updateDashboard();
 

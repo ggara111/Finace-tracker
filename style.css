@@ -125,3 +125,21 @@ button:hover {
 #transactions li.income { border-left: 4px solid #4ade80; }
 #transactions li.expense { border-left: 4px solid #f87171; }
 
+.date {
+  font-size: 0.8rem;
+  color: #aaaaaa;
+}
+
+.delete-btn {
+  background: transparent;
+  color: #f87171;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.delete-btn:hover {
+  color: #ff0000;
+}
+
