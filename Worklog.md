@@ -26,4 +26,16 @@
 - Clean up the layout so everything sits better on the page
 - Start building the AI financial advisor chatbot using Claude API
 
+# Day 3: March 27, 2026.
+### What I added:
+- Redesigned full layout to dashboard style — full width, sections clearly separated
+- Summary cards now use CSS grid across full width
+- Add Transaction form in its own card with clean single row layout
+- Transactions and Spending Breakdown sit side by side in a middle row
+- FINN chat UI built and placed at the bottom
+
+### Next session:
+- Implement FINN as floating popup
+- Start sidebar navigation shell
+
 

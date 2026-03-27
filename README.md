@@ -1,54 +1,61 @@
-# Personal Finance Tracker 
-A personal finance dashboard that helps you keep track of income, expenses, and balance in real time. Built with HTML, CSS, and JavaScript. SOON to be added, AI finacial advisor.
+# 💰 Personal Finance Tracker
+
+A personal finance dashboard that helps you track income, expenses, 
+and balance in real time — powered by FINN, your AI financial advisor. 
+Built with HTML, CSS, and JavaScript.
 
 ---
 
-## Features
+## 🚀 Features
 
-- Add income and expense transactions instantly
-- Real time dashboard showing income, expenses, and balance
-- Transaction history with color coded entries
-- CSV import for bulk transaction uploads *(coming soon)*
-- AI financial advisor chatbot *(coming soon)*
-- Spending breakdown chart *(coming soon)*
+- Real time dashboard — income, expenses, and balance cards
+- Add transactions with categories and date stamps
+- Delete individual transactions
+- Spending breakdown donut chart by category
+- localStorage persistence — data saves across sessions 
+- FINN — AI financial advisor chatbot (Claude API) **IN PROGRESS**
 
 ---
 
-## Built With
+## 🛠️ Built With
 
 - HTML, CSS, JavaScript
-- Chart.js *(in progress)*
-- Claude AI API *(coming soon)*
+- Chart.js — spending visualizations
+- Claude API — FINN AI advisor
+- GitHub Codespaces — development environment
+- Vercel — deployment (coming soon)
 
 ---
 
-## Screenshot
-
-*(Add a screenshot here soon)*
-
----
-
-##  Roadmap
+## 🗺️ Roadmap
 
 ### V1 - Core App *(in progress)*
 - [x] Transaction form and dashboard
-- [ ] localStorage persistence
-- [ ] Spending chart with Chart.js
-- [ ] CSV import
-- [ ] AI chatbot financial advisor
+- [x] localStorage persistence
+- [x] Spending chart with Chart.js
+- [x] Category tracking
+- [x] FINN chat UI
+- [ ] FINN floating popup
+- [ ] Sidebar navigation
+- [ ] Accounts page
+- [ ] Full Claude API integration
 - [ ] Deploy to Vercel
 
 ### V2 - Real Product
+- [ ] Analytics page — weekly, monthly, yearly views
+- [ ] Goals page — savings goals and journal
+- [ ] Recurring transactions per account
+- [ ] FINN upgrade with full financial context
 - [ ] Backend server with Node.js
 - [ ] Database with Supabase
 - [ ] User login and profiles
-- [ ] Recurring expenses and subscriptions
 
 ### V3 - Full Vision
-- [ ] Daily, weekly, monthly expense views
-- [ ] Spending personality analysis
+- [ ] Plaid bank integration — auto sync accounts
+- [ ] Investment account tracking
 - [ ] Mobile optimized design
-- [ ] Plaid bank integration??
+- [ ] Spending personality analysis
+
 ---
 
 ## Author
