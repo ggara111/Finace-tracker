@@ -177,54 +177,114 @@ button:hover {
   height: 350px;
 }
 
-/* ── FINN ── */
-.finn-section {
-  background-color: #1a1a1a;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 32px;
-}
-
-.finn-header {
+/* ── FINN FLOATING BUTTON ── */
+.finn-bubble {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 60px;
+  height: 60px;
+  background-color: #4ade80;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.finn-bubble:hover {
+  transform: scale(1.1);
+}
+
+/* ── FINN POPUP ── */
+.finn-popup {
+  position: fixed;
+  bottom: 110px;
+  right: 32px;
+  width: 380px;
+  height: 520px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.finn-popup.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* ── FINN HEADER ── */
+.finn-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
   border-bottom: 1px solid #2a2a2a;
-  padding-bottom: 16px;
 }
 
-.finn-avatar {
-  font-size: 2.5rem;
+.finn-popup-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.finn-header h2 {
-  font-size: 1.3rem;
+.finn-popup-title span {
+  font-size: 1.8rem;
+}
+
+.finn-popup-title h2 {
+  font-size: 1rem;
   color: #4ade80;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.finn-subtitle {
-  font-size: 0.8rem;
+.finn-popup-title p {
+  font-size: 0.7rem;
   color: #aaaaaa;
 }
 
+.finn-close {
+  background: transparent;
+  color: #aaaaaa;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.finn-close:hover {
+  color: #ffffff;
+  background: transparent;
+}
+
+/* ── FINN MESSAGES ── */
 .finn-messages {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  min-height: 200px;
-  max-height: 400px;
+  gap: 12px;
+  padding: 16px 20px;
   overflow-y: auto;
-  margin-bottom: 20px;
 }
 
 .finn-message {
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 12px;
-  max-width: 75%;
+  max-width: 85%;
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .finn-message.finn {
@@ -241,25 +301,33 @@ button:hover {
   align-self: flex-end;
 }
 
+.finn-thinking {
+  color: #aaaaaa;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* ── FINN INPUT ── */
 .finn-input {
   display: flex;
-  gap: 12px;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid #2a2a2a;
 }
 
 .finn-input input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 10px;
   border: none;
   background-color: #0f0f0f;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
-.finn-thinking {
-  color: #aaaaaa;
-  font-style: italic;
-  font-size: 0.9rem;
+.finn-input button {
+  padding: 10px 16px;
+  font-size: 0.875rem;
 }
 
 

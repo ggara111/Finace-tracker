@@ -61,6 +61,11 @@ function clearForm() {
   document.getElementById('amount').value = '';
 }
 
+function toggleFinn() {
+  const popup = document.getElementById('finnPopup');
+  popup.classList.toggle('open');
+}
+
 function updateChart() {
   const expenses = transactions.filter(t => t.type === 'expense');
 
