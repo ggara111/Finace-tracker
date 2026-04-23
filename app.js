@@ -66,6 +66,25 @@ function toggleFinn() {
   popup.classList.toggle('open');
 }
 
+function showPage(pageName) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  // Remove active from all nav items
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  // Show selected page
+  document.getElementById(`page-${pageName}`).classList.add('active');
+
+  // Highlight active nav item
+  event.currentTarget.classList.add('active');
+}
+
+
 function updateChart() {
   const expenses = transactions.filter(t => t.type === 'expense');
 

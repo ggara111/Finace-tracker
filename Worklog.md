@@ -1,6 +1,6 @@
 # Personal Finance Tracker 
 
-# Day 1: March 24, 2026.
+# Day 1
 ### What I built:
 - Set up GitHub repo and Codespace environment
 - Created the three core files: index.html, style.css, app.js
@@ -13,7 +13,7 @@
 - Add localStorage so data persists on refresh
 - Look into Chart.js for visualizations
 
-# Day 2: March 25, 2026.
+# Day 2
 ### What I added:
 - Added category dropdown function to transaction form (Food, Transport, Hosuing, etc.)
 - Implemented localStorage so data stays after a page refresh
@@ -26,7 +26,7 @@
 - Clean up the layout so everything sits better on the page
 - Start building the AI financial advisor chatbot using Claude API
 
-# Day 3: March 27, 2026.
+# Day 3
 ### What I added:
 - Redesigned full layout to dashboard style — full width, sections clearly separated
 - Summary cards now use CSS grid across full width
@@ -37,5 +37,10 @@
 ### Next session:
 - Implement FINN as floating popup
 - Start sidebar navigation shell
+
+# Day 4
+### What I added:
+-FINN as popup. Intial trouble with code, but now working
+-Working sidebar navigation.
 
 

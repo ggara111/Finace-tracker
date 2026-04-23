@@ -35,7 +35,7 @@ Built with HTML, CSS, and JavaScript.
 - [x] Spending chart with Chart.js
 - [x] Category tracking
 - [x] FINN chat UI
-- [ ] FINN floating popup
+- [x] FINN floating popup
 - [ ] Sidebar navigation
 - [ ] Accounts page
 - [ ] Full Claude API integration
